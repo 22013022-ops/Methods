@@ -91,15 +91,16 @@ const Sandbox = () => {
                         )}
 
                         <div style={{ display: 'flex', gap: '8px' }}>
-                            {editingId === task.id ? (
-                                <button onClick={() => handleUpdate(task.id)} style={{ padding: '6px 12px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                                    Save PUT
-                                </button>
-                            ) : (
-                                <button onClick={() => { setEditingId(task.id); setEditTitle(task.title); }} style={{ padding: '6px 12px', backgroundColor: 'var(--border)', color: 'var(--text-h)', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                                    PUT (Edit)
-                                </button>
-                            )}
+                            // ✅ Corrected code:
+                                {editingId === task.id ? (
+                                    <button onClick={() => handleUpdate(task.id)} style={{ padding: '6px 12px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                                        Save PUT
+                                    </button>
+                                ) : (
+                                    <button onClick={() => { setEditingId(task.id); setEditTitle(task.title); }} style={{ padding: '6px 12px', backgroundColor: 'var(--border)', color: 'var(--text-h)', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                                        PUT (Edit)
+                                    </button>
+                                )}
                             <button onClick={() => handleDelete(task.id)} style={{ padding: '6px 12px', backgroundColor: '#ef4444', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
                                 DELETE
                             </button>

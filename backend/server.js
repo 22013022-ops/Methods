@@ -8,7 +8,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 // 2. Now import routes (they can now see the .env variables)
-const authRoutes = require('./routes/sandboxRoutes');
 const sandboxRoutes = require('./routes/sandboxRoutes');
 
 const app = express();

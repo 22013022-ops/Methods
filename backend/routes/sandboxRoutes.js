@@ -16,10 +16,13 @@ router.get('/tasks', (req, res) => {
 // 2. POST Method - Create a new item
 router.post('/tasks', (req, res) => {
     console.log("📤 POST Request Received - Creating task:", req.body);
-    const newTask = {
-        id: tasks.length + 1,
-        title: req.body.title
-    };
+    // ✅ Safe, production-ready ID assignment:
+        const nextId = tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1;
+
+        const newTask = {
+            id: nextId,
+            title: req.body.title
+        };
     tasks.push(newTask);
     res.status(201).json({ message: "Task created successfully!", data: newTask });
 });
